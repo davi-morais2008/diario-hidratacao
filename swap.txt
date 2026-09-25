@@ -45,3 +45,36 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
 });
+
+
+// MEU CSS DO WATER PROGRESS
+
+// const styles = StyleSheet.create({
+//     container:{
+//         height:200,
+//         width:'100%',
+//         backgroundColor:COLORS.background,
+//         alignItems: 'center',
+//         justifyContent:'center',
+        
+//     },
+//     title:{
+//         color: COLORS.primary,
+//         fontSize: 20,
+//     },
+//     subtitle:{
+//         fontSize: 20
+//     },
+//     barProgress:{
+//         borderWidth: 1,
+//         width: '80%',
+//         height: 36,
+//         backgroundColor: COLORS.primary
+
+//     },
+//     progress:{
+//         height: '100%',
+//         backgroundColor: COLORS.secondary,
+//         boxShadow: '10px 0px 15px rgba(0, 0, 0, 0.2);,'
+//     }
+// })

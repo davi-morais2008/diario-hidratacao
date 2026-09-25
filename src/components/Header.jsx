@@ -7,7 +7,7 @@ export default function Header({goal}) {
 
     return(
         <View style={styles.container} >
-            <Text style={styles.title} >Diário de Hidratação</Text>
+            <Text style={styles.title} >💧 Diário de Hidratação</Text>
             <Text style={styles.subtitle}>Meta diária: {goal}ml</Text>
         </View>
 
@@ -18,13 +18,19 @@ export default function Header({goal}) {
 const styles = StyleSheet.create({
     container:{
         alignItems: 'center',
-        backgroundColor: COLORS.background
+        marginTop: 24,
+        marginBottom: 24,
+
     },
     title:{
         color: COLORS.primary,
+        fontSize: 22,
+        fontWeight: 'bold'
     },
     subtitle:{
-        backgroundColor: COLORS.background,
+        fontSize: 14,
+        color: COLORS.textMain,
+        marginTop: 4
     },
 
 })
