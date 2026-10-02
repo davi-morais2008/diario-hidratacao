@@ -4,28 +4,34 @@ import { COLORS } from "../constants/colors"
 export default function WaterProgress({aguaConsumida, objetivo}) {
 
     const percentual = Math.min(Math.round((aguaConsumida / objetivo) * 100),100)
+    let mensagem;
+    
+    if (aguaConsumida < objetivo){
+      mensagem = `Continue bebendo água para atingir sua meta, faltam ${objetivo-aguaConsumida}`
+    } else {
+      mensagem = 'Parabéns! Você atingiu sua meta diária.'
+    }
 
     return(
-        <View style={styles.card}>
-            <Text style={styles.consumedText}>{aguaConsumida} ml</Text>
-            <Text style={styles.percentageText}>{percentual}% da meta atingida.</Text>
-
-            <View style={styles.progressBarBackground}>
-                {/* + '%', uma concatenação pois sem ela, o width fica apenas como 50 e não 50%. */}
-                <View style={styles.progressBarFill} width={percentual + '%'}/>
-            </View>
-
-        </View>
+          <View style={styles.card}>
+              <Text style={styles.consumedText}>Você bebeu {aguaConsumida}ml</Text>
+              <Text style={styles.percentageText}>{percentual}% da meta atingida.</Text>
+              <View style={styles.progressBarBackground}>
+                  {/* + '%', uma concatenação pois sem ela, o width fica apenas como 50 e não 50%. */}
+                  <View style={styles.progressBarFill} width={percentual + '%'}/>
+              </View>
+              <Text style={styles.textMessage}>{mensagem}</Text>
+          </View>
     )
 };
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: COLORS.cardBg,
     borderRadius: 16,
     padding: 20,
-    width: '100%',
+    width: '90%',
     alignItems: 'center',
+    alignSelf: 'center',
     marginBottom: 24,
     elevation: 3,
     shadowColor: '#000',
@@ -37,6 +43,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: 'bold',
     color: COLORS.primary,
+    textAlign: 'center'
   },
   percentageText: {
     fontSize: 14,
@@ -49,10 +56,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0F2FE',
     borderRadius: 6,
     overflow: 'hidden',
+    marginBottom: 14,
   },
   progressBarFill: {
     height: '100%',
     backgroundColor: COLORS.secondary,
     borderRadius: 6,
   },
+
+  textMessage:{
+    color:COLORS.textMuted,
+    textAlign: 'center',
+  }
+
 });
